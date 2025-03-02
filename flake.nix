@@ -16,6 +16,8 @@
       {
         packages.x86_64-linux = corePkgs // {
           default = "${corePkgs.live-cd.iso}";
+          meson = "${corePkgs.meson}";
+          openrc = "${corePkgs.openrc}";
         };
 
         ccachedPackages =

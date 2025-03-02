@@ -70,6 +70,10 @@ let
     };
     pkg-config = callPackage ./pkg-config.nix {};
     zstd = callPackage ./zstd.nix {};
+    ninja = callPackage ./openrc/ninja.nix { python = _bootstrap.early-python; };
+    meson = callPackage ./openrc/meson.nix { python = _bootstrap.early-python; };
+    openrc = callPackage ./openrc/openrc.nix { python = _bootstrap.early-python; inherit (pkgs) meson ninja pkg-config libcap; cmake = _bootstrap.early-cmake; };
+    libcap = callPackage ./openrc/libcap.nix {};
 
     linux = callPackage ./linux/linux.nix {};
     gnum4 = callPackage ./linux/gnum4.nix {};
